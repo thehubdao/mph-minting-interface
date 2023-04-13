@@ -7,11 +7,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage:{
+        'paint': "url('/images/bg-mph.png')",
+      },
       fontFamily: {
         'work': ['var(--work-font)', 'sans-serif'],
         'humane': ['var(--humane-font)', 'sans-serif'],
-        'poppins': ['var(--poppins-font)', 'sans-serif']
+        'poppins': ['var(--poppins-font)', 'sans-serif'],
+        'inter': ['var(--inter-font)', 'sans-serif']
       },
+      colors:{
+        'rg-white': 'rgba(255, 255, 255, 0.7)'
+      }
     },
   },
   plugins: [],
