@@ -15,8 +15,7 @@ export default function Home() {
         <div className='flex flex-col gap-4 justify-between items-center mx-52 mt-16 sm:flex-row'>
           <a href="https://richkidsclub.io/home" className='sm:self-start'>
             <div className='flex items-center justify-center px-12 py-5'>
-              <Image  src="/icons/mgh-logo.svg" width={40} height={36} className='mr-4 mt-4' alt='mgh-logo' />
-              <p className='text-4xl translate-y-1 font-title text-white'>metagamehub</p>
+              <Image  src="/icons/metagamehub.svg" width={342} height={40} className='mr-4 mt-4' alt='mgh-logo' />
             </div>
           </a>
           <div className='flex flex-col gap-2'>
@@ -30,7 +29,7 @@ export default function Home() {
       <main className="min-h-screen bg-black font-work text-white bg-paint">
         <div className='w-full min-h-screen mb-56'>
           <div className='container mx-auto min-h-screen lg:flex lg:flex-col lg:justify-center'>
-            <h1 className='font-humane text-center text-white mt-64 text-[200px]'>METAPARTYHUB PARTYPASS</h1>
+            <h1 className='font-humane text-center text-white mt-64 leading-3 text-[200px]'>METAPARTYHUB PARTYPASS</h1>
             <p className='font-inter text-center text-rg-white text-3xl'>Access future MPH events</p>
             <div className='flex flex-col items-center justify-center mt-8'>
               <Image  src="/images/mph-cartel.png" width={912} height={912} alt='cartel'/>

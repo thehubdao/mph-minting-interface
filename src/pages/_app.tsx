@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
         {`
           :root {
             --work-font: ${workSans.style.fontFamily};
-            --work-inter: ${inter.style.fontFamily};
+            --inter-font: ${inter.style.fontFamily};
             --humane-font: ${humane.style.fontFamily};
             --poppins-font: ${poppins.style.fontFamily};
           }
