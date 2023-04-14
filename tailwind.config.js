@@ -17,7 +17,10 @@ module.exports = {
         'inter': ['var(--inter-font)', 'sans-serif']
       },
       colors:{
-        'rg-white': 'rgba(255, 255, 255, 0.7)'
+        'rg-white': 'rgba(255, 255, 255, 0.7)',
+        'rg-black': 'rgba(13, 12, 16, 1)',
+        'rg-black2': 'rgba(20, 19, 23, 1)',
+        'gray1': 'rgba(84, 87, 92, 1)'
       }
     },
   },

@@ -1,8 +1,16 @@
+import React, { useState } from 'react';
 import Footer from '@/components/footer.component'
 import Head from 'next/head'
 import Image from "next/image";
+import Modal from '@/components/modal';
 
 export default function Home() {
+
+  const [modal, setModal] = useState(false);
+  const showModal = () => {
+    setModal(!modal);
+  }
+
   return (
     <>
       <Head>
@@ -19,8 +27,7 @@ export default function Home() {
             </div>
           </a>
           <div className='flex flex-col gap-2'>
-            <div className='text-white border-1 border border-white hover:bg-white hover:text-black px-8 py-2 flex items-center justify-center cursor-pointer w-[340px] h-[62px]'>
-              
+            <div className='text-white border-1 border border-white hover:bg-white hover:text-black px-8 py-2 flex items-center justify-center cursor-pointer w-[340px] h-[62px]'> 
               <p className='font-poppins text-xl'>Connect Wallet</p>
             </div>
           </div>
@@ -29,7 +36,7 @@ export default function Home() {
       <main className="min-h-screen bg-black font-work text-white bg-paint">
         <div className='w-full min-h-screen mb-56'>
           <div className='container mx-auto min-h-screen lg:flex lg:flex-col lg:justify-center'>
-            <h1 className='font-humane text-center text-white mt-64 leading-3 text-[200px]'>METAPARTYHUB PARTYPASS</h1>
+            <h1 className='font-humane text-center text-white mt-64 leading-[140px] text-[200px]'>METAPARTYHUB PARTYPASS</h1>
             <p className='font-inter text-center text-rg-white text-3xl'>Access future MPH events</p>
             <div className='flex flex-col items-center justify-center mt-8'>
               <Image  src="/images/mph-cartel.png" width={912} height={912} alt='cartel'/>
@@ -45,7 +52,7 @@ export default function Home() {
               </div>
             </div>
             <div className='flex items-center justify-center mt-5'>
-              <div className=' flex flex-col text-black border-1 border border- bg-white items-center justify-center w-[288px] h-[70px]'>
+              <div className=' flex flex-col text-black border-1 border border- bg-white items-center justify-center w-[288px] h-[70px]' onClick={showModal}>
                 <p className='font-poppins text-2xl'>Mint now</p>
               </div>
             </div>
@@ -63,6 +70,7 @@ export default function Home() {
         </div>
         <Footer />
       </main>
+      {modal && <Modal showModal={showModal}/>}
     </>
   )
 }
