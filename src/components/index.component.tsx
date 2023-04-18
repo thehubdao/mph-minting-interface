@@ -126,7 +126,6 @@ export default function Index() {
                                     Access future MPH events
                                 </p>
                                 <div className="flex flex-col items-center justify-center mt-8">
-                                
                                 <video
                                 poster='images/mph-cartel.png'
                                 controls
