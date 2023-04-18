@@ -6,6 +6,7 @@ import Modal from '@/components/modal'
 import { ethers } from 'ethers'
 import { ellipseAddress } from '@/util/web3Util'
 import { hasWalletMinted, mint } from '@/services/MPHContractService'
+import {  toast } from 'react-toastify'
 
 export default function Index() {
     const [provider, setProvider] = useState<any>()
@@ -22,15 +23,16 @@ export default function Index() {
         if (provider) {
             await provider.send('eth_requestAccounts', [])
             const signer = await provider.getSigner()
-            
+
             await (window as any).ethereum.request({
-                method: "wallet_switchEthereumChain",
-                params: [{
-                    chainId: "0x1",
-                    
-                }]
+                method: 'wallet_switchEthereumChain',
+                params: [
+                    {
+                        chainId: '0x1',
+                    },
+                ],
             })
-            setSigner(signer);
+            setSigner(signer)
             const address = await signer.getAddress()
             setAddress(address)
         }
@@ -51,6 +53,7 @@ export default function Index() {
 
     return (
         <>
+            
             {provider && (
                 <>
                     <Head>
@@ -128,7 +131,7 @@ export default function Index() {
                                             0,0069 ETH
                                         </p>
                                     </div>
-{/*                                     <div className="flex flex-col text-white border-1 border border-white ml-2 items-center justify-center w-[140px] h-[62px]">
+                                    {/*                                     <div className="flex flex-col text-white border-1 border border-white ml-2 items-center justify-center w-[140px] h-[62px]">
                                         <p className="font-inter text-sm">
                                             TOTAL MINTED
                                         </p>
@@ -138,34 +141,74 @@ export default function Index() {
                                     </div> */}
                                 </div>
                                 {!address && (
-                                <div className="flex flex-col gap-2 items-center mt-2">
-                                    <div
-                                        onClick={connectWallet}
-                                        className="text-white border-1 border border-white hover:bg-white hover:text-black px-8 py-2 flex items-center justify-center cursor-pointer w-[340px] h-[62px]"
-                                    >
-                                        <p className="font-poppins text-xl">
-                                            Connect Wallet To Mint
-                                        </p>
-                                    </div>
-                                </div>
-                            )}
-                                {address && 
-                                <div className="flex flex-col gap-2">
-                                <div className="flex items-center justify-center mt-5">
-                                    <div
-                                        className=" flex flex-col text-black border-1 border border- bg-white items-center justify-center w-[288px] h-[70px]"
-                                        /* onClick={showModal} */
-                                    >
-                                        <p
-                                            onClick={async () => {
-                                                if(!hasMinted) await mint(signer)
-                                            }}
-                                            className="font-poppins text-2xl"
+                                    <div className="flex flex-col gap-2 items-center mt-2">
+                                        <div
+                                            onClick={connectWallet}
+                                            className="text-white border-1 border border-white hover:bg-white hover:text-black px-8 py-2 flex items-center justify-center cursor-pointer w-[340px] h-[62px]"
                                         >
-                                            {!hasMinted ? 'Mint now':'You can only mint once'}
-                                        </p>
+                                            <p className="font-poppins text-xl">
+                                                Connect Wallet To Mint
+                                            </p>
+                                        </div>
                                     </div>
-                                </div></div>}
+                                )}
+                                {address && (
+                                    <div className="flex flex-col gap-2">
+                                        <div className="flex items-center justify-center mt-5">
+                                            <div
+                                                className=" flex flex-col text-black border-1 border border- bg-white items-center justify-center w-[288px] h-[70px]"
+                                                /* onClick={showModal} */
+                                            >
+                                                <p
+                                                    onClick={async () => {
+                                                        if (hasMinted) return
+                                                        const transactionState = await mint(
+                                                            signer
+                                                        )
+                                                        if (!transactionState)
+                                                            toast(
+                                                                'Not enough funds, you will need 0.0069 + some gas!!',
+                                                                {
+                                                                    position:
+                                                                        'top-right',
+                                                                    autoClose: 5000,
+                                                                    hideProgressBar: false,
+                                                                    closeOnClick: true,
+                                                                    pauseOnHover: true,
+                                                                    draggable: true,
+                                                                    progress: undefined,
+                                                                    theme:
+                                                                        'light',
+                                                                }
+                                                            )
+                                                        else
+                                                            toast(
+                                                                'NFT minted successfully',
+                                                                {
+                                                                    position:
+                                                                        'top-right',
+                                                                    autoClose: 5000,
+                                                                    hideProgressBar: false,
+                                                                    closeOnClick: true,
+                                                                    pauseOnHover: true,
+                                                                    draggable: true,
+                                                                    progress: undefined,
+                                                                    theme:
+                                                                        'light',
+                                                                }
+                                                            )
+                                                    }}
+                                                    className="font-poppins text-2xl"
+                                                >
+                                                    {!hasMinted
+                                                        ? 'Mint now'
+                                                        : 'You can only mint once'}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
                                 <div className="flex items-center justify-center mt-24">
                                     <p className="font-poppins text-3xl text-rg-white">
                                         Mint our very first MPH music NFT,

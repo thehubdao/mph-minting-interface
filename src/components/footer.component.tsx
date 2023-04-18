@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <>
       {/* footer */}
-      <div className='flex flex-col xl:flex-row justify-between items-center'>
+      <div className='flex flex-col xl:flex-row justify-center items-center'>
         {/* footer contact */}
         <div className='xl:w-2/4 flex flex-col items-center'>
           <p className='text-gray-normal text-lg text-center font-semibold mb-6 mx-8'>
@@ -22,7 +22,7 @@ export default function Footer() {
             <SocialIcon imageUrl='/icons/ether.png' link='https://etherscan.io/token/0x8765b1a0eb57ca49be7eacd35b24a574d0203656' alt='etherscan link' />
           </div>
         </div>
-        {/* footer links */}
+        {/*
         <div className='w-5/6 xl:w-2/4 flex justify-between xl:items-center pt-20 xl:px-40 xl:pt-0 text-gray-normal'>
           <div>
             <Link href='/'>
@@ -47,7 +47,7 @@ export default function Footer() {
               <p className='text-xl block'>FAQ</p>
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
       {/* terms */}
       <div className='pt-24 pb-12'>
