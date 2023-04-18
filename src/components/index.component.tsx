@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Footer from '@/components/footer.component'
 import Head from 'next/head'
 import Image from 'next/image'
-import Modal from '@/components/modal'
+import Modal from './modal'
 import { ethers } from 'ethers'
 import { ellipseAddress } from '@/util/web3Util'
 import {
@@ -10,7 +10,6 @@ import {
     hasWalletMinted,
     mint,
 } from '@/services/MPHContractService'
-import { toast } from 'react-toastify'
 
 
 
