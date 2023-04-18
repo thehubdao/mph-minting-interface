@@ -7,9 +7,22 @@ const MPH_CONTRACT = new Contract(MPH_CONTRACT_ADDRESS, MPHContractABI)
 
 export const mint = async (signer: any) => {
     try {
-        const contract = MPH_CONTRACT.connect(signer) as Contract
+        const contract = MPH_CONTRACT.connect(signer) as any
+        let estimatedGas = 200000;
+        try {
+          const estimatedGasFromContract = await contract.estimateGas.mint(
+             { gasLimit: 0 });
+    
+          estimatedGas = estimatedGasFromContract.toNumber();
+        } catch (error: any) {
+          console.log('User got insufficient funds for mint');
+          console.log(error);
+        }
+        console.log(estimatedGas)
         const tx = await contract.mint({
             value: ethers.parseUnits('0.0069', 'ether'),
+            gasPrice:estimatedGas,
+            gasLimit: 880000000
         })
         await tx.wait()
     } catch (err) {
