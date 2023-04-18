@@ -5,8 +5,12 @@ import Image from 'next/image'
 import Modal from '@/components/modal'
 import { ethers } from 'ethers'
 import { ellipseAddress } from '@/util/web3Util'
-import { hasWalletMinted, mint } from '@/services/MPHContractService'
-import {  toast } from 'react-toastify'
+import {
+    getTokenSupply,
+    hasWalletMinted,
+    mint,
+} from '@/services/MPHContractService'
+import { toast } from 'react-toastify'
 
 export default function Index() {
     const [provider, setProvider] = useState<any>()
@@ -14,6 +18,7 @@ export default function Index() {
     const [hasMinted, setHasMinted] = useState<boolean>(false)
     const [address, setAddress] = useState<any>()
     const [modal, setModal] = useState(false)
+    const [totalSupply, setTotalSupply] = useState<any>()
 
     const showModal = () => {
         setModal(!modal)
@@ -39,8 +44,14 @@ export default function Index() {
     }
 
     useEffect(() => {
-        const provider = new ethers.BrowserProvider((window as any).ethereum)
-        setProvider(provider)
+        const initPromise = async () => {
+            const provider = new ethers.BrowserProvider(
+                (window as any).ethereum
+            )
+            setTotalSupply(await getTokenSupply(provider))
+            setProvider(provider)
+        }
+        initPromise()
     }, [])
 
     useEffect(() => {
@@ -53,11 +64,10 @@ export default function Index() {
 
     return (
         <>
-            
-            {provider && (
+            {provider && totalSupply && (
                 <>
                     <Head>
-                        <title>MetaPartyHub minting interface</title>
+                        <title>MetaPartyHub Genesis Collection</title>
                         <meta
                             name="description"
                             content="MetaGameHub DAO is your ultimate destination for all things metaverse. As a one stop shop for investing, building, and experiencing virtual worlds, we offer a wide range of tools and resources to help you get the most out of your metaverse journey. From price estimation tools and development editors to immersive experiences and community-driven decision-making, we have everything you need to take your virtual adventures to the next level. Join the MetaGameHub DAO community today and start exploring the infinite possibilities of the metaverse!"
@@ -71,10 +81,11 @@ export default function Index() {
                     <header className="absolute w-full  z-10">
                         <div className="flex flex-col gap-4 justify-between items-center mx-52 mt-16 sm:flex-row">
                             <a
-                                href="https://richkidsclub.io/home"
+                                href="https://app.metagamehub.io"
                                 className="sm:self-start"
                             >
                                 <div className="flex items-center justify-center px-12 py-5">
+
                                     <Image
                                         src="/icons/metagamehub.svg"
                                         width={342}
@@ -109,18 +120,24 @@ export default function Index() {
                         <div className="w-full min-h-screen mb-56">
                             <div className="container mx-auto min-h-screen lg:flex lg:flex-col lg:justify-center">
                                 <h1 className="font-humane text-center text-white mt-64 leading-[140px] text-[200px]">
-                                    METAPARTYHUB PARTYPASS
+                                    METAPARTYHUB PASS
                                 </h1>
                                 <p className="font-inter text-center text-rg-white text-3xl">
                                     Access future MPH events
                                 </p>
                                 <div className="flex flex-col items-center justify-center mt-8">
-                                    <Image
-                                        src="/images/mph-cartel.png"
-                                        width={912}
-                                        height={912}
-                                        alt="cartel"
-                                    />
+                                <video
+                                poster='images/mph-cartel.png'
+                                controls
+                                        autoPlay
+                                        loop
+                                        style={{
+                                            width: '912px',
+                                            height: '912px',
+                                        }}
+                                    >
+                                        <source src="https://bafybeierrtmj32b4dohncvhhlriyeqictsbmim5kkoaya2ykovrwkjhjfi.ipfs.dweb.link/" />
+                                    </video>
                                 </div>
                                 <div className="flex items-center justify-center">
                                     <div className=" flex flex-col text-white border-1 border border-white items-center justify-center w-[140px] h-[62px]">
@@ -131,14 +148,14 @@ export default function Index() {
                                             0,0069 ETH
                                         </p>
                                     </div>
-                                    {/*                                     <div className="flex flex-col text-white border-1 border border-white ml-2 items-center justify-center w-[140px] h-[62px]">
+                                    <div className="flex flex-col text-white border-1 border border-white ml-2 items-center justify-center w-[140px] h-[62px]">
                                         <p className="font-inter text-sm">
                                             TOTAL MINTED
                                         </p>
                                         <p className="font-inter text-lg font-bold">
-                                            51
+                                            {totalSupply}
                                         </p>
-                                    </div> */}
+                                    </div>
                                 </div>
                                 {!address && (
                                     <div className="flex flex-col gap-2 items-center mt-2">
@@ -157,46 +174,13 @@ export default function Index() {
                                         <div className="flex items-center justify-center mt-5">
                                             <div
                                                 className=" flex flex-col text-black border-1 border border- bg-white items-center justify-center w-[288px] h-[70px]"
-                                                /* onClick={showModal} */
+                                                onClick={showModal}
                                             >
                                                 <p
                                                     onClick={async () => {
                                                         if (hasMinted) return
-                                                        const transactionState = await mint(
-                                                            signer
-                                                        )
-                                                        if (!transactionState)
-                                                            toast(
-                                                                'Not enough funds, you will need 0.0069 + some gas!!',
-                                                                {
-                                                                    position:
-                                                                        'top-right',
-                                                                    autoClose: 5000,
-                                                                    hideProgressBar: false,
-                                                                    closeOnClick: true,
-                                                                    pauseOnHover: true,
-                                                                    draggable: true,
-                                                                    progress: undefined,
-                                                                    theme:
-                                                                        'light',
-                                                                }
-                                                            )
-                                                        else
-                                                            toast(
-                                                                'NFT minted successfully',
-                                                                {
-                                                                    position:
-                                                                        'top-right',
-                                                                    autoClose: 5000,
-                                                                    hideProgressBar: false,
-                                                                    closeOnClick: true,
-                                                                    pauseOnHover: true,
-                                                                    draggable: true,
-                                                                    progress: undefined,
-                                                                    theme:
-                                                                        'light',
-                                                                }
-                                                            )
+                                                        showModal()
+                                                        return
                                                     }}
                                                     className="font-poppins text-2xl"
                                                 >
@@ -231,7 +215,13 @@ export default function Index() {
                         </div>
                         <Footer />
                     </main>
-                    {modal && <Modal showModal={showModal} />}
+                    {modal && (
+                        <Modal
+                            tokenId={totalSupply}
+                            signer={signer}
+                            showModal={showModal}
+                        />
+                    )}
                 </>
             )}
         </>

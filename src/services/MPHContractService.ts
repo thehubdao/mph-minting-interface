@@ -1,5 +1,6 @@
-import { Contract, Typed, ethers } from 'ethers'
+import {  AbiCoder, Contract, Typed, ethers } from 'ethers'
 import MPHContractABI from '../abi/MPHContractABI.json'
+
 const MPH_CONTRACT_ADDRESS = process.env.MPH_CONTRACT_ADDRESS!
 
 const MPH_CONTRACT = new Contract(MPH_CONTRACT_ADDRESS, MPHContractABI)
@@ -25,4 +26,12 @@ export const hasWalletMinted = async (signer: any) => {
     const balance = Number(await contract.balanceOf(Typed.address(address)))
     if (balance) return true
     return false
+}
+
+export const getTokenSupply = async (provider:any)=>{
+const encodedData = await provider.getStorage(MPH_CONTRACT_ADDRESS,12)
+
+const decodedData = (AbiCoder.defaultAbiCoder().decode(['uint256'],encodedData))
+
+return decodedData.toString()
 }
