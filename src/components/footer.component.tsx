@@ -12,14 +12,14 @@ export default function Footer() {
           Business & Partnership Proposals
           </p>
           <div className='flex justify-around xl:w-[57%] pt-4'>
-            <SocialIcon imageUrl='/icons/medium.png' link='https://metagamehub.medium.com/' alt='medium link' />
+            {/* <SocialIcon imageUrl='/icons/medium.png' link='https://metagamehub.medium.com/' alt='medium link' />
             <SocialIcon imageUrl='/icons/instagram.png' link='https://www.instagram.com/metagamehub_dao/' alt='instagram link' />
-            <SocialIcon imageUrl='/icons/linkedin.png' link='https://www.linkedin.com/company/metagamehub-dao/' alt='linkedin link' />
-            <SocialIcon imageUrl='/icons/twitter.png' link='https://twitter.com/MGH_DAO' alt='twitter link' />
-            <SocialIcon imageUrl='/icons/telegram.png' link='https://t.me/metagamehub_dao' alt='telegram link' />
+            <SocialIcon imageUrl='/icons/linkedin.png' link='https://www.linkedin.com/company/metagamehub-dao/' alt='linkedin link' /> */}
+            <SocialIcon imageUrl='/icons/twitter.svg' link='https://twitter.com/MGH_DAO' alt='twitter link' />
+            {/* <SocialIcon imageUrl='/icons/telegram.png' link='https://t.me/metagamehub_dao' alt='telegram link' />
             <SocialIcon imageUrl='/icons/discord.png' link='https://discord.com/invite/8WJVMDXZwH' alt='discord link' />
             <SocialIcon imageUrl='/icons/email.png' link='mailto:info@thedac.info' alt='MetaGameHub DAO email' />
-            <SocialIcon imageUrl='/icons/ether.png' link='https://etherscan.io/token/0x8765b1a0eb57ca49be7eacd35b24a574d0203656' alt='etherscan link' />
+            <SocialIcon imageUrl='/icons/ether.png' link='https://etherscan.io/token/0x8765b1a0eb57ca49be7eacd35b24a574d0203656' alt='etherscan link' /> */}
           </div>
         </div>
         {/*

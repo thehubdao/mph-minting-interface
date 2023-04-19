@@ -80,18 +80,16 @@ export default function Index() {
                         <link rel="icon" href="/favicon.ico" />
                     </Head>
                     <header className="absolute w-full  z-10">
-                        <div className="flex flex-col gap-4 justify-between items-center mx-52 mt-16 sm:flex-row">
+                        <div className="flex flex-col xl:flex-row gap-y-4 justify-center xl:justify-between items-center xl:mx-52 mt-16">
                             <a
                                 href="https://app.metagamehub.io"
-                                className="sm:self-start"
                             >
-                                <div className="flex items-center justify-center px-12 py-5">
+                                <div className="flex items-center justify-center">
 
                                     <Image
                                         src="/icons/metagamehub.svg"
                                         width={342}
                                         height={40}
-                                        className="mr-4 mt-4"
                                         alt="mgh-logo"
                                     />
                                 </div>
@@ -120,22 +118,18 @@ export default function Index() {
                     <main className="min-h-screen bg-black font-work text-white bg-paint">
                         <div className="w-full min-h-screen mb-56">
                             <div className="container mx-auto min-h-screen lg:flex lg:flex-col lg:justify-center">
-                                <h1 className="font-humane text-center text-white mt-64 leading-[140px] text-[200px]">
+                                <h1 className="font-humane text-center text-white pt-64 leading-none md:leading-[140px] text-9xl md:text-[200px]">
                                     METAPARTYHUB PASS
                                 </h1>
                                 <p className="font-inter text-center text-rg-white text-3xl">
                                     Access future MPH events
                                 </p>
                                 <div className="flex flex-col items-center justify-center mt-8">
-                                <video
-                                poster='images/mph-cartel.png'
-                                controls
+                                    <video
+                                        poster='images/mph-cartel.png'
+                                        controls
                                         autoPlay
                                         loop
-                                        style={{
-                                            width: '912px',
-                                            height: '912px',
-                                        }}
                                     >
                                         <source src="https://bafybeierrtmj32b4dohncvhhlriyeqictsbmim5kkoaya2ykovrwkjhjfi.ipfs.dweb.link/" />
                                     </video>
@@ -166,7 +160,7 @@ export default function Index() {
                                     <div className="flex flex-col gap-2">
                                         <div className="flex items-center justify-center mt-5">
                                             <div
-                                                className=" flex flex-col text-black border-1 border border- bg-white items-center justify-center w-[288px] h-[70px]"
+                                                className=" flex flex-col text-black border-1 border border- bg-white items-center justify-center w-[340px] h-[62px]"
                                                 onClick={async () => {
                                                     if (hasMinted) return
                                                     showModal()
@@ -187,23 +181,17 @@ export default function Index() {
                                     </div>
                                 )}
 
-                                <div className="flex items-center justify-center mt-24">
-                                    <p className="font-poppins text-3xl text-rg-white">
+                                <div className='flex  flex-col items-center mt-24 p-3'>
+                                    <p className="font-poppins text-3xl text-rg-white text-center">
                                         Mint our very first MPH music NFT,
                                         Michael lus’ track F*ck my D*ck feat
                                         Ivangbi.
                                     </p>
-                                </div>
-                                <div className="grid grid-cols-4 mt-4 justify-center">
-                                    <div className="col-span-1"></div>
-                                    <div className="col-span-2 text-center">
-                                        <p className="font-poppins text-xl text-rg-white">
-                                            The Partypass will give you access
-                                            to future MPH events, with the next
-                                            edition scheduled for ETH CC
-                                        </p>
-                                    </div>
-                                    <div className="col-span-1"></div>
+                                    <p className="font-poppins text-xl text-rg-white text-center mt-4 max-w-[750px]">
+                                        The Partypass will give you access
+                                        to future MPH events, with the next
+                                        edition scheduled for ETH CC
+                                    </p>
                                 </div>
                             </div>
                         </div>
