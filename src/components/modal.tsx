@@ -4,7 +4,6 @@ import { toast } from 'react-toastify'
 import { mint } from '@/services/MPHContractService'
 
 const Modal = ({ tokenId,showModal, signer }: any) => {
-    const [count, setCount] = useState(0)
 
     return (
         <div className="fixed h-screen w-screen top-0 left-0 bg-black/75 z-50 flex justify-center items-center">
@@ -60,7 +59,9 @@ const Modal = ({ tokenId,showModal, signer }: any) => {
                 <div className="flex items-center justify-center mt-7">
                     <button
                         onClick={async () => {
+                            showModal()
                             const transactionState = await mint(signer)
+                            
                             if (!transactionState)
                                 toast(
                                     'Not enough funds, you will need 0.0069 + some gas!!',
