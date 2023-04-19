@@ -49,7 +49,7 @@ export default function Index() {
             const provider = new ethers.BrowserProvider(
                 (window as any).ethereum
             )
-            setTotalSupply(await getTokenSupply(provider))
+            setTotalSupply(await getTokenSupply())
             setProvider(provider)
         }
         initPromise()
