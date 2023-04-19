@@ -9,8 +9,8 @@ interface SocialProps {
 export default function SocialIcon({ imageUrl, link, alt }: SocialProps) {
   return (
     <a href={link} target='_blank' rel='noreferrer'>
-      <div className='flex justify-center items-center w-[38px] h-[38px] relative'>
-        <Image src={imageUrl} fill={true} alt={alt} sizes="38px" />
+      <div className='flex justify-center items-center w-[70px] h-[70px] relative'>
+        <Image src={imageUrl} fill={true} alt={alt} sizes="70px" />
       </div>
     </a>
   )

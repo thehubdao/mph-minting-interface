@@ -49,10 +49,9 @@ const Modal = ({ tokenId,showModal, signer }: any) => {
                 </div>
                 <div className="w-full  flex flex-col items-center justify-center my-20">
                     <div className="flex flex-row mt-4">
-                    <p className="font-poppins text-white text-[15px] font-bold p-5">
-                        You are about to mint your METAPARTYHUB PASS. Are you ready to redefine Web3 parties with us?
-                    </p>
-                        
+                      <p className="font-poppins text-white text-[15px] font-bold py-5 px-[70px] text-center">
+                          You are about to mint your METAPARTYHUB PASS. Are you ready to redefine Web3 parties with us?
+                      </p>      
                     </div>
                 </div>
                 

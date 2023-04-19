@@ -141,20 +141,12 @@ export default function Index() {
                                     </video>
                                 </div>
                                 <div className="flex items-center justify-center">
-                                    <div className=" flex flex-col text-white border-1 border border-white items-center justify-center w-[140px] h-[62px]">
+                                    <div className=" flex flex-col text-white border-1 border border-white items-center justify-center w-[340px] h-[62px]">
                                         <p className="font-inter text-sm">
                                             PRICE
                                         </p>
                                         <p className="font-inter text-lg font-bold">
                                             0,0069 ETH
-                                        </p>
-                                    </div>
-                                    <div className="flex flex-col text-white border-1 border border-white ml-2 items-center justify-center w-[140px] h-[62px]">
-                                        <p className="font-inter text-sm">
-                                            TOTAL MINTED
-                                        </p>
-                                        <p className="font-inter text-lg font-bold">
-                                            {totalSupply}
                                         </p>
                                     </div>
                                 </div>
