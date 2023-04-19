@@ -14,6 +14,7 @@ export const mint = async (signer: any) => {
             value: ethers.parseUnits('0.0069', 'ether'),
             gasLimit: estimatedGas * BigInt("3")
         })
+        
         await tx.wait()
     } catch (err) {
         console.log(err)
