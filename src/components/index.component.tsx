@@ -175,14 +175,14 @@ export default function Index() {
                                         <div className="flex items-center justify-center mt-5">
                                             <div
                                                 className=" flex flex-col text-black border-1 border border- bg-white items-center justify-center w-[288px] h-[70px]"
-                                                onClick={showModal}
+                                                onClick={async () => {
+                                                    if (hasMinted) return
+                                                    showModal()
+                                                    return
+                                                }}
                                             >
                                                 <p
-                                                    onClick={async () => {
-                                                        if (hasMinted) return
-                                                        showModal()
-                                                        return
-                                                    }}
+                                                
                                                     className="font-poppins text-2xl"
                                                 >
                                                     {!hasMinted
