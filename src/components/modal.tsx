@@ -22,16 +22,16 @@ const Modal = ({ tokenId,showModal, signer }: any) => {
                     />
                 </div>
                 <div className="w-full h-[64px] border-b flex justify-center items-center border-gray1">
-                    <h2 className="font-poppins text-gray1 text-[15px]">
+                    <h2 className="font-poppins text-white text-[15px]">
                         Checkout
                     </h2>
                 </div>
                 <div className="w-full flex items-center justify-around">
                     <div className="w-[219px] flex flex-col mt-8">
-                        <p className="font-poppins text-gray1 text-sm">
+                        <p className="font-poppins text-white text-sm">
                             NFT ·{tokenId}
                             </p>
-                        <p className="font-poppins text-gray1 text-sm">
+                        <p className="font-poppins text-white text-sm">
                             Original Audio
                         </p>
                     </div>
@@ -43,14 +43,14 @@ const Modal = ({ tokenId,showModal, signer }: any) => {
                             className=""
                             alt="eth-logo"
                         />
-                        <p className="font-poppins text-gray1 text-sm">
+                        <p className="font-poppins text-white text-sm">
                             0.0069 ETH
                         </p>
                     </div>
                 </div>
                 <div className="w-full  flex flex-col items-center justify-center my-20">
                     <div className="flex flex-row mt-4">
-                    <p className="font-poppins text-gray1 text-[15px] font-bold p-5">
+                    <p className="font-poppins text-white text-[15px] font-bold p-5">
                         You are about to mint your METAPARTYHUB PASS. Are you ready to redefine Web3 parties with us?
                     </p>
                         
@@ -87,7 +87,7 @@ const Modal = ({ tokenId,showModal, signer }: any) => {
                                     theme: 'light',
                                 })
                         }}
-                        className=" flex flex-col text-gray1 bg-rg-black2 rounded-2xl items-center justify-center w-[215px] h-[47px] cursor-pointer"
+                        className=" flex flex-col text-white bg-rg-black2 rounded-2xl items-center justify-center w-[215px] h-[47px] cursor-pointer"
                     >
                         <p className="font-poppins text-sm">Mint</p>
                     </button>
