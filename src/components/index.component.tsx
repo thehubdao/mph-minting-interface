@@ -168,7 +168,7 @@ export default function Index() {
                                     <div className="flex flex-col gap-2">
                                         <div className="flex items-center justify-center mt-2">
                                             <div
-                                                className=" flex flex-col text-black border-1 border border- bg-white items-center justify-center w-[340px] h-[62px]"
+                                                className="cursor-pointer	 flex flex-col text-black border-1 border border- bg-white items-center justify-center w-[340px] h-[62px]"
                                                 onClick={async () => {
                                                     if (hasMinted) return
                                                     showModal()
